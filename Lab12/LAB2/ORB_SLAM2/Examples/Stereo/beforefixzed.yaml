@@ -1,0 +1,123 @@
+%YAML:1.0
+
+#--------------------------------------------------------------------------------------------
+# Camera Parameters. Adjust them!          for Kalibr
+#--------------------------------------------------------------------------------------------
+
+# Camera calibration and distortion parameters (OpenCV) 
+Camera.fx: 690.6878510284205
+Camera.fy: 690.4070560945236
+Camera.cx: 633.4759793568744
+Camera.cy: 379.0474946457819
+
+Camera.k1: -0.17133083757747497
+Camera.k2: 0.026929992494427353
+Camera.p1: 0.0009495119036639311
+Camera.p2: -0.00023640686589512599
+Camera.width: 1280
+Camera.height: 605  #605
+
+# Camera frames per second 
+Camera.fps: 60
+
+# stereo baseline times fx
+Camera.bf: 82.8825421234
+
+# Color order of the images (0: BGR, 1: RGB. It is ignored if images are grayscale)
+Camera.RGB: 1
+
+# Close/Far threshold. Baseline times.  (35
+ThDepth: 160
+
+#--------------------------------------------------------------------------------------------
+# Stereo Rectification. Only if you need to pre-rectify the images.
+# Camera.fx, .fy, etc must be the same as in LEFT.P
+#--------------------------------------------------------------------------------------------
+
+LEFT.height: 605
+LEFT.width: 1280
+LEFT.D: !!opencv-matrix
+   rows: 1
+   cols: 5
+   dt: d
+   data: [-0.17133083757747497, 0.026929992494427353, 0.0009495119036639311, -0.00023640686589512599, 0]
+LEFT.K: !!opencv-matrix
+   rows: 3
+   cols: 3
+   dt: d
+   data: [690.6878510284205, 0.0, 633.4759793568744, 0.0,690.4070560945236, 379.0474946457819, 0.0, 0.0, 1.0]
+LEFT.R:  !!opencv-matrix
+   rows: 3
+   cols: 3
+   dt: d
+   data: [0.9999346240199585, -0.0009897399284775627, 0.01139158026519184, 0.0009539994069631796, 0.9999946074095437, 0.003142457153890984, -0.01139462905038356, -0.003131384151857443, 0.9999301759933529]
+LEFT.P:  !!opencv-matrix
+   rows: 3
+   cols: 4
+   dt: d
+   data: [563.7450680031019, 0, 633.4683456420898, 0, 0, 563.7450680031019, 385.850227355957, 0, 0, 0, 1, 0]
+
+RIGHT.height: 605
+RIGHT.width: 1280
+RIGHT.D: !!opencv-matrix
+   rows: 1
+   cols: 5
+   dt: d
+   data: [-0.17352865077672208, 0.028380124175226163, 0.0008313873392048611, -0.00024249606588661835, 0]
+RIGHT.K: !!opencv-matrix
+   rows: 3
+   cols: 3
+   dt: d
+   data: [692.2640039329995, 0.0, 649.9003441811185, 0.0, 692.0822209679861, 372.09846726233513, 0.0, 0.0, 1.0]
+RIGHT.R:  !!opencv-matrix
+   rows: 3
+   cols: 3
+   dt: d
+   data: [1, 2.184260801743609e-16, -2.713974878165715e-15, -2.314856573161849e-16, 0.9999950796914691, -0.003136971924072815, 2.712240154689738e-15, 0.003136971924072815, 0.9999950796914692]
+RIGHT.P:  !!opencv-matrix
+   rows: 3
+   cols: 4
+   dt: d
+   data: [563.7450680031019, 0, 633.4683456420898, -67.64940816037222, 0, 563.7450680031019, 385.850227355957, 0, 0, 0, 1, 0]
+
+
+
+#--------------------------------------------------------------------------------------------
+# ORB Parameters
+#--------------------------------------------------------------------------------------------
+
+# ORB Extractor: Number of features per image  1200
+ORBextractor.nFeatures: 1200   
+
+# ORB Extractor: Scale factor between levels in the scale pyramid 	
+ORBextractor.scaleFactor: 1.2
+
+# ORB Extractor: Number of levels in the scale pyramid	
+ORBextractor.nLevels: 8
+
+# ORB Extractor: Fast threshold
+# Image is divided in a grid. At each cell FAST are extracted imposing a minimum response.
+# Firstly we impose iniThFAST. If no corners are detected we impose a lower value minThFAST
+# You can lower these values if your images have low contrast			
+ORBextractor.iniThFAST: 20
+ORBextractor.minThFAST: 7            #7
+
+#--------------------------------------------------------------------------------------------
+# Viewer Parameters
+#--------------------------------------------------------------------------------------------
+Viewer.KeyFrameSize: 0.05
+Viewer.KeyFrameLineWidth: 1
+Viewer.GraphLineWidth: 0.9
+Viewer.PointSize:2
+Viewer.CameraSize: 0.08
+Viewer.CameraLineWidth: 3
+Viewer.ViewpointX: 0
+Viewer.ViewpointY: -0.7
+Viewer.ViewpointZ: -1.8
+Viewer.ViewpointF: 500
+
+
+#--------------------------------------------------------------------------------------------
+# Map Parapeters
+#--------------------------------------------------------------------------------------------
+Map.mapfile: map.bin
